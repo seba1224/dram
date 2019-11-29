@@ -26,7 +26,7 @@ module fifo_dram( din, rst, len, dout, ce, clk, inv);
     output [271:0] dout;
     input [63:0] din;
     input rst;
-    input [8:0] len;
+    input [3:0] len;
     input clk;
     input ce;
     input inv;
@@ -34,7 +34,7 @@ module fifo_dram( din, rst, len, dout, ce, clk, inv);
     wire [271:0] dout;
     wire [63:0] din;
     wire rst;
-    wire [8:0] len;
+    wire [3:0] len;
     wire clk;
     wire ce;
     wire inv;
@@ -48,41 +48,47 @@ module fifo_dram( din, rst, len, dout, ce, clk, inv);
         else begin
             if(~inv) begin
                 case(len)
-                    16: begin
+                    4: begin
                         data[15:0] = din[15:0];
                         data = {data[15:0],data[271:16]};
                         end
-                    32: begin
+                    3: begin
                         data[31:0] = din[31:0];
                         data = {data[31:0],data[271:32]};
                         end
-                    48:begin
+                    2:begin
                         data[47:0] = din[47:0];
                         data = {data[47:0], data[271:48]};
                         end
-                    64: begin
+                    1: begin
                         data[64:0] = din[64:0];
                         data = {data[64:0], data[271:64]};
+                        end
+                    default: begin
+                        data=data;
                         end
                 endcase
             end
             else begin
                 case(len)
-                    16: begin
-                        data[15:0] = din[63:47];
+                    4: begin
+                        data[15:0] = din[63:48];
                         data = {data[15:0],data[271:16]};
                         end
-                    32: begin
-                        data[31:0] = din[63:31];
+                    3: begin
+                        data[31:0] = din[63:32];
                         data = {data[31:0],data[271:32]};
                         end
-                    48:begin
-                        data[47:0] = din[63:15];
+                    2:begin
+                        data[47:0] = din[63:16];
                         data = {data[47:0], data[271:48]};
                         end
-                    64: begin
-                        data[64:0] = din[64:0];
+                    1: begin
+                       	data[64:0] = din[64:0];
                         data = {data[64:0], data[271:64]};
+                        end
+                    default: begin
+                        data=data;
                         end
                 endcase
             end

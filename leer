@@ -1,0 +1,27 @@
+El input len da el largo de la palabra que se esta guardando
+
+
+la traducción es la sgte:
+
+0 ---> no input
+1 ---> 64
+2 ---> 48
+3 ---> 32
+4 ---> 16
+
+
+El input inv da cuenta de donde se toman los datos
+0 no entrega ningun offset y toma los bits de 0:len
+1 entrega el offser por ej 63:63-len
+
+
+Los datos guardados toman la sgte forma:
+
+64-64-64-64-16		buf1
+48-64-64-64-32		buf2
+32-64-64-64-48		buf1
+16-64-64-64-64		buf2
+
+
+tenemos 16 bits que se usan de header		
+
