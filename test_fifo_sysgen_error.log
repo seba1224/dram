@@ -5,34 +5,16 @@ Matlab 8.2.0.701 (R2013b)               /usr/local/MATLAB/R2013b
 ISE                                     /opt/Xilinx/14.7/ISE_DS/ISE
 --------------------------------------------------------------------------------
 Summary of Errors:
-Error 0001: Block initialization code, "fifo_dram_config", caused the...
-     Block: 'test_fifo/Black Box1'
-Error 0002: Block initialization code, "fifo_dram_config", caused the...
-     Block: 'test_fifo/Black Box1'
+Error 0001: Attempt to access address location 17, exceeds the depth ...
+     Block: 'test_fifo/ROM'
 --------------------------------------------------------------------------------
 
 Error 0001:
 
 Reported by:
-  'test_fifo/Black Box1'
+  'test_fifo/ROM'
 
 Details:
-Block initialization code, "fifo_dram_config", caused the MATLAB
-error: 
-Unable to find function setup_as_single_rate within /home/roach/DRAM/SMA/dram/fifo_dram_config.m.
-Error occurred during "Rate and Type Propagation".
-
---------------------------------------------------------------------------------
-
-Error 0001:
-
-Reported by:
-  'test_fifo/Black Box1'
-
-Details:
-Block initialization code, "fifo_dram_config", caused the MATLAB
-error: 
-Unable to find function setup_as_single_rate within /home/roach/DRAM/SMA/dram/fifo_dram_config.m.
-Error occurred during "Rate and Type Error Checking".
-
+Attempt to access address location 17, exceeds the depth , 17,
+specified for single port ROM.
 --------------------------------------------------------------------------------

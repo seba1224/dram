@@ -61,11 +61,11 @@ module fifo_dram( din, rst, len, dout, ce, clk, inv);
                         data = {data[47:0], data[271:48]};
                         end
                     1: begin
-                        data[64:0] = din[64:0];
-                        data = {data[64:0], data[271:64]};
+                        data[63:0] = din[63:0];
+                        data = {data[63:0], data[271:64]};
                         end
                     default: begin
-                        data=data;
+                        data=0;
                         end
                 endcase
             end
@@ -84,11 +84,11 @@ module fifo_dram( din, rst, len, dout, ce, clk, inv);
                         data = {data[47:0], data[271:48]};
                         end
                     1: begin
-                       	data[64:0] = din[64:0];
-                        data = {data[64:0], data[271:64]};
+                       	data[63:0] = din[63:0];
+                        data = {data[63:0], data[271:64]};
                         end
                     default: begin
-                        data=data;
+                        data=0;
                         end
                 endcase
             end
